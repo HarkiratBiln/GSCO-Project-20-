@@ -1,2 +1,2 @@
-# GSCO-Project-20-
-This is my Project 20.
+# staticSquare
+A static square made using Matter.js physics engine
