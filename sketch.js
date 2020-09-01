@@ -1,43 +1,34 @@
-const Engine = Matter.Engine;
-const World= Matter.World;
-const Bodies = Matter.Bodies;
-
-var engine, world;
-var ground;
-var ball;
-
-function setup(){
-    var canvas = createCanvas(400,400);
-    engine = Engine.create();
-    world = engine.world;
-
-    var ground_options ={
-        isStatic: true
-    }
-
-    ground = Bodies.rectangle(200,390,200,20,ground_options);
-    World.add(world,ground);
-
-    var ballOptions = {
-        restitution : 1.0
-    }
-    
-    
-    ball = Bodies.circle(200,50,30,ballOptions);
-    World.add(world,ball);
+var car;
+var wall;
+var speed, weight;
 
 
-    console.log(ground);
+function setup() {
+  createCanvas(1600,400);
+ 
+ //Setting the Speed and Weight into Random Values
+ speed =  random(55,90);
+ weight = random(400,1500);
+ 
+ //Creating the Car
+  car = createSprite(50,200,50,50);
+  car.velocityX = speed;
+  car.shapeColor = (255);
+
+  //Creating the Wall
+  wall = createSprite(1500,200,60,height/2);
+  wall.shapeColor = (80,80,80);
+
 }
 
-function draw(){
-    background(0);
-    Engine.update(engine);
-    rectMode(CENTER);
-    rect(ground.position.x,ground.position.y,400,20);
+function draw() {
+  background("black");
+  
+  
 
-    ellipseMode(RADIUS);
-    ellipse(ball.position.x, ball.position.y, 30,30);
-    
 
+
+
+
+  drawSprites();
 }
